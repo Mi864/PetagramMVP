@@ -1,39 +1,35 @@
 package com.example.petagram;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView RvMascotas;
-    ArrayList<Mascota> mascotas;
-
+    TabLayout tabLayout;
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RvMascotas = findViewById(R.id.Rv);
+        tabLayout = findViewById(R.id.tablayout);
+        viewPager = findViewById(R.id.viewpager);
 
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        RvMascotas.setLayoutManager(llm);
 
-        InicializarListaMascotas();
-        InicializarAdaptador();
+        setViewPager();
 
     }
 
@@ -48,26 +44,45 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        Intent intent = new Intent(this,MainActivity2.class);
-        startActivity(intent);
-        return true;
+        switch(item.getItemId()){
+
+            case R.id.Cotacto:
+                Intent intentC = new Intent(this, Contacto.class);
+                startActivity(intentC);
+                return true;
+            case R.id.AcercaDe:
+                Intent intentA = new Intent(this, AcercaDe.class);
+                startActivity(intentA);
+                return true;
+            case R.id.IR:
+                Intent intent = new Intent(this, MainActivity2.class);
+                startActivity(intent);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
-    public void InicializarListaMascotas(){
+    public ArrayList<Fragment> AgregarFragments(){
 
-        mascotas = new ArrayList<Mascota>();
+        ArrayList<Fragment> fragments = new ArrayList<>();
 
-        mascotas.add(new Mascota(R.drawable.p1,"Tommy"));
-        mascotas.add(new Mascota(R.drawable.p2,"Luna" ));
-        mascotas.add(new Mascota(R.drawable.p3,"Toby" ));
-        mascotas.add(new Mascota(R.drawable.p4,"Perla"));
-        mascotas.add(new Mascota(R.drawable.p5,"Max"  ));
+        fragments.add(new FragmentMascotas());
+        fragments.add(new FragmentPerfil());
+
+        return fragments;
+
     }
 
-    private void InicializarAdaptador() {
+    public void setViewPager() {
 
-        MascotasAdaptador adaptador = new MascotasAdaptador(mascotas, this);
-        RvMascotas.setAdapter(adaptador);
+        viewPager.setAdapter(new PageAdaptador(getSupportFragmentManager(), 0,AgregarFragments()));
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.huellas);
+        tabLayout.getTabAt(1).setIcon(R.drawable.perfil);
+
     }
 
 }

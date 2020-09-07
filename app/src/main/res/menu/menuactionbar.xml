@@ -8,4 +8,14 @@
         android:title="@string/IR"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/Cotacto"
+        android:title="@string/Contacto"
+         />
+
+    <item
+        android:id="@+id/AcercaDe"
+        android:title="@string/acerca_de"
+        />
+
 </menu>

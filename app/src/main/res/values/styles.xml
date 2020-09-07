@@ -7,4 +7,11 @@
         <item name="colorAccent">#FF5722</item>
     </style>
 
+    <style name="Boton" parent="Theme.AppCompat.Light">
+
+        <item name="colorButtonNormal">#00BCD4</item>
+        <item name="colorControlHighlight">#4E2E87</item>
+
+    </style>
+
 </resources>
