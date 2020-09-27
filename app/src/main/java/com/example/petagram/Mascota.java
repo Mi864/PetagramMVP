@@ -13,6 +13,10 @@ public class Mascota {
         this.Likes  = likes;
     }
 
+    public Mascota() {
+
+    }
+
     public int getFoto() {
         return Foto;
     }
