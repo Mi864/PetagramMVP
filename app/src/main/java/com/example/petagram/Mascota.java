@@ -2,13 +2,15 @@ package com.example.petagram;
 
 public class Mascota {
 
+    int id;
     int Foto;
     String Nombre;
+    int Likes;
 
-
-    public Mascota(int foto, String nombre) {
-        this.Foto = foto;
+    public Mascota(int foto, String nombre, int likes) {
+        this.Foto   = foto;
         this.Nombre = nombre;
+        this.Likes  = likes;
     }
 
     public int getFoto() {
@@ -26,5 +28,22 @@ public class Mascota {
     public void setNombre(String nombre) {
         Nombre = nombre;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getLikes() {
+        return Likes;
+    }
+
+    public void setLikes(int likes) {
+        Likes = likes;
+    }
+
 
 }

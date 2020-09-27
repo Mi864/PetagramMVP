@@ -1,10 +1,9 @@
-package com.example.petagram;
+package com.example.petagram.VistaFragment;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -12,6 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.petagram.Mascota;
+import com.example.petagram.Adaptador.PerfilAdaptador;
+import com.example.petagram.R;
 
 import java.util.ArrayList;
 
@@ -49,7 +52,7 @@ public class FragmentPerfil extends Fragment {
         mascota = new ArrayList<>();
 
         for (int i = 0 ; i < 15; i++ ) {
-            mascota.add(new Mascota(R.drawable.p1, "Tommy"));
+            mascota.add(new Mascota(R.drawable.p1, "Tommy",1));
         }
     }
 

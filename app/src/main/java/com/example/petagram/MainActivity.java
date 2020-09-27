@@ -1,7 +1,6 @@
 package com.example.petagram;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -11,6 +10,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.example.petagram.Adaptador.PageAdaptador;
+import com.example.petagram.Menu.AcercaDe;
+import com.example.petagram.Menu.Contacto;
+import com.example.petagram.Menu.MainActivity2;
+import com.example.petagram.VistaFragment.FragmentMascotas;
+import com.example.petagram.VistaFragment.FragmentPerfil;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;

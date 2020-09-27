@@ -1,12 +1,14 @@
-package com.example.petagram;
+package com.example.petagram.Menu;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
+import com.example.petagram.Mascota;
+import com.example.petagram.Adaptador.MascotasAdaptador;
+import com.example.petagram.R;
 
 import java.util.ArrayList;
 
@@ -37,11 +39,11 @@ public class MainActivity2 extends AppCompatActivity {
 
         mascotas = new ArrayList<Mascota>();
 
-        mascotas.add(new Mascota(R.drawable.p2,"Luna" ));
-        mascotas.add(new Mascota(R.drawable.p4,"Perla"));
-        mascotas.add(new Mascota(R.drawable.p3,"Toby" ));
-        mascotas.add(new Mascota(R.drawable.p5,"Max"  ));
-        mascotas.add(new Mascota(R.drawable.p1,"Tommy"));
+        mascotas.add(new Mascota(R.drawable.p2,"Luna" ,1 ));
+        mascotas.add(new Mascota(R.drawable.p4,"Perla",1 ));
+        mascotas.add(new Mascota(R.drawable.p3,"Toby" ,1 ));
+        mascotas.add(new Mascota(R.drawable.p5,"Max"  ,1 ));
+        mascotas.add(new Mascota(R.drawable.p1,"Tommy",1 ));
     }
 
     private void InicializarAdaptador() {

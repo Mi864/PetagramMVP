@@ -1,4 +1,4 @@
-package com.example.petagram;
+package com.example.petagram.Adaptador;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.petagram.Mascota;
+import com.example.petagram.R;
 
 import java.util.ArrayList;
 
@@ -51,6 +54,7 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Ma
         mascotasViewHolder.Foto.setImageResource(mascota.getFoto());
         mascotasViewHolder.Nombre.setText(mascota.getNombre());
         mascotasViewHolder.Cantidad.setText(String.valueOf(contadorinicial));
+       // mascotasViewHolder.Cantidad.setText(String.valueOf(mascota.getLikes()));
 
         mascotasViewHolder.Like.setOnClickListener(new View.OnClickListener() {
             @Override
