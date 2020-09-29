@@ -89,7 +89,8 @@ public class BaseDatos extends SQLiteOpenHelper {
 
             if (registroslikes.moveToNext()){
                 mascota.setLike(registroslikes.getInt(0));
-            }
+            }else
+                mascota.setLike(0);
 
             mascotas.add(mascota);
         }
