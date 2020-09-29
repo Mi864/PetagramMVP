@@ -18,7 +18,7 @@ public class ConstructorMascotas {
         this.context = context;
     }
 
-    public void insertarDatos(BaseDatos baseDatos){
+    public void insertarMascotas(BaseDatos baseDatos){
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(ConstantesBaseDatos.TablaMascotaNombre,"Tommy");
@@ -50,10 +50,10 @@ public class ConstructorMascotas {
 
         baseDatos.InsertarMascotas(contentValues);
     }
-    public ArrayList<Mascota> obtenerDatos(){
+    public ArrayList<Mascota> obtenerMascotas(){
 
         BaseDatos baseDatos = new BaseDatos(context);
-        insertarDatos(baseDatos);
+        insertarMascotas(baseDatos);
         return baseDatos.ObtenerMascotas();
 
        /* ArrayList<Mascota> mascotas = new ArrayList<>();
@@ -65,5 +65,22 @@ public class ConstructorMascotas {
         mascotas.add(new Mascota(R.drawable.p5,"Max"  ,1));
 
         return mascotas;*/
+    }
+
+    public void insertarLikesMascota(Mascota mascota){
+
+        BaseDatos baseDatos = new BaseDatos(context);
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(ConstantesBaseDatos.TablaLikesMascotaMascotaID,mascota.getId());
+        contentValues.put(ConstantesBaseDatos.TablaLikesMascotaLikes,1);
+
+        baseDatos.InsertarLikesMascota(contentValues);
+    }
+
+    public int obtenerLikesMascotaa(Mascota mascota) {
+
+        BaseDatos baseDatos = new BaseDatos(context);
+        return baseDatos.ObtenerLikesMascota(mascota);
     }
 }

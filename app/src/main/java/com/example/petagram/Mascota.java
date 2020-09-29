@@ -7,10 +7,9 @@ public class Mascota {
     String Nombre;
     int Likes;
 
-    public Mascota(int foto, String nombre, int likes) {
+    public Mascota(int foto, String nombre) {
         this.Foto   = foto;
         this.Nombre = nombre;
-        this.Likes  = likes;
     }
 
     public Mascota() {
@@ -45,9 +44,8 @@ public class Mascota {
         return Likes;
     }
 
-    public void setLikes(int likes) {
-        Likes = likes;
+    public void setLike(int like) {
+        Likes = like;
     }
-
 
 }

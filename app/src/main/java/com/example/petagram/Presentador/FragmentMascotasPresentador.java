@@ -25,7 +25,7 @@ public class FragmentMascotasPresentador implements IFragmentMascotasPresentador
     @Override
     public void obtenerMascotasBD() {
     constructorMascotas = new ConstructorMascotas(context);
-    mascotas = constructorMascotas.obtenerDatos();
+    mascotas = constructorMascotas.obtenerMascotas();
     mostrarMascotasRV();
     }
 

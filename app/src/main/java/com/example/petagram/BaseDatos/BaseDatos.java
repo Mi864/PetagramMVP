@@ -77,14 +77,52 @@ public class BaseDatos extends SQLiteOpenHelper {
 
             Mascota mascota = new Mascota();
 
-            mascota.setId(registros.getInt(0));
+            mascota.setId(registros.getInt(0));//Campo ID el cual se autoincrementa
             mascota.setNombre(registros.getString(1));
             mascota.setFoto(registros.getInt(2));
+
+            String querylikes = "SELECT COUNT(" + ConstantesBaseDatos.TablaLikesMascotaLikes + ")" +
+                                " FROM "  + ConstantesBaseDatos.TablaLikesMascota +
+                                " WHERE " + ConstantesBaseDatos.TablaLikesMascotaMascotaID + "=" + mascota.getId();
+
+            Cursor registroslikes = sqLiteDatabase.rawQuery(querylikes,null);
+
+            if (registroslikes.moveToNext()){
+                mascota.setLike(registroslikes.getInt(0));
+            }
 
             mascotas.add(mascota);
         }
 
         sqLiteDatabase.close();
         return mascotas;
+    }
+
+    public void InsertarLikesMascota(ContentValues contentValues){
+
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.insert(ConstantesBaseDatos.TablaLikesMascota,null,contentValues);
+        sqLiteDatabase.close();
+
+    }
+
+    public int ObtenerLikesMascota(Mascota mascota){
+
+        int likes = 0;
+
+        String query = "SELECT COUNT(" + ConstantesBaseDatos.TablaLikesMascotaLikes + ")" +
+                       " FROM "  + ConstantesBaseDatos.TablaLikesMascota +
+                       " WHERE " + ConstantesBaseDatos.TablaLikesMascotaMascotaID + "=" + mascota.getId();
+
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor registros = sqLiteDatabase.rawQuery(query,null);
+
+        if (registros.moveToNext()){
+            likes = registros.getInt(0);
+        }
+
+        sqLiteDatabase.close();
+
+        return likes;
     }
 }

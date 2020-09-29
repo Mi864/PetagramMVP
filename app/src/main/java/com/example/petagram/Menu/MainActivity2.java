@@ -37,13 +37,13 @@ public class MainActivity2 extends AppCompatActivity {
 
     public void InicializarListaMascotas(){
 
-        mascotas = new ArrayList<Mascota>();
+        mascotas = new ArrayList<>();
 
-        mascotas.add(new Mascota(R.drawable.p2,"Luna" ,1 ));
-        mascotas.add(new Mascota(R.drawable.p4,"Perla",1 ));
-        mascotas.add(new Mascota(R.drawable.p3,"Toby" ,1 ));
-        mascotas.add(new Mascota(R.drawable.p5,"Max"  ,1 ));
-        mascotas.add(new Mascota(R.drawable.p1,"Tommy",1 ));
+        mascotas.add(new Mascota(R.drawable.p2,"Luna" ));
+        mascotas.add(new Mascota(R.drawable.p4,"Perla"));
+        mascotas.add(new Mascota(R.drawable.p3,"Toby" ));
+        mascotas.add(new Mascota(R.drawable.p5,"Max"  ));
+        mascotas.add(new Mascota(R.drawable.p1,"Tommy"));
     }
 
     private void InicializarAdaptador() {

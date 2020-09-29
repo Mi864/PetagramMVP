@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.petagram.BaseDatos.ConstructorMascotas;
 import com.example.petagram.Mascota;
 import com.example.petagram.R;
 
@@ -53,8 +54,8 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Ma
 
         mascotasViewHolder.Foto.setImageResource(mascota.getFoto());
         mascotasViewHolder.Nombre.setText(mascota.getNombre());
-        mascotasViewHolder.Cantidad.setText(String.valueOf(contadorinicial));
-       // mascotasViewHolder.Cantidad.setText(String.valueOf(mascota.getLikes()));
+       // mascotasViewHolder.Cantidad.setText(String.valueOf(contadorinicial));
+        mascotasViewHolder.Cantidad.setText(String.valueOf(mascota.getLikes()));
 
         mascotasViewHolder.Like.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,27 +63,9 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Ma
 
                 Toast.makeText(activity, "Like a " + mascota.getNombre(),Toast.LENGTH_SHORT).show();
 
-                if (mascota.getNombre()=="Tommy"){
-                    contadorT = contadorT+1;
-                    mascotasViewHolder.Cantidad.setText(String.valueOf(contadorT));
-                }
-                if (mascota.getNombre()=="Luna"){
-                    contadorL = contadorL+1;
-                    mascotasViewHolder.Cantidad.setText(String.valueOf(contadorL));
-                }
-                if (mascota.getNombre()=="Toby"){
-                    contadorTo = contadorTo+1;
-                    mascotasViewHolder.Cantidad.setText(String.valueOf(contadorTo));
-                }
-                if (mascota.getNombre()=="Perla"){
-                    contadorP = contadorP+1;
-                    mascotasViewHolder.Cantidad.setText(String.valueOf(contadorP));
-                }
-                if (mascota.getNombre()=="Max"){
-                    contadorM = contadorM+1;
-                    mascotasViewHolder.Cantidad.setText(String.valueOf(contadorM));
-                }
-
+                ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
+                constructorMascotas.insertarLikesMascota(mascota);
+                mascotasViewHolder.Cantidad.setText(constructorMascotas.obtenerLikesMascotaa(mascota));
             }
         });
 
