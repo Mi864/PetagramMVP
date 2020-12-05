@@ -52,7 +52,7 @@ public class FragmentPerfil extends Fragment {
         mascota = new ArrayList<>();
 
         for (int i = 0 ; i < 15; i++ ) {
-            mascota.add(new Mascota(R.drawable.p1, "Tommy",1));
+            mascota.add(new Mascota(R.drawable.p1, "Tommy"));
         }
     }
 
