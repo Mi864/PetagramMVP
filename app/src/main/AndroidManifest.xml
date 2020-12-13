@@ -29,7 +29,12 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+        <receiver android:name=".DarToque">
+            <intent-filter>
+                <action android:name="DAR TOQUE"/>
+            </intent-filter>
 
+        </receiver>
     </application>
 
 
